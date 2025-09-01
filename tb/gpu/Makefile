@@ -1,26 +1,26 @@
 SIM ?= icarus
 
-VERILOG_SOURCES += $(shell pwd)/../src/alu.sv
-VERILOG_SOURCES += $(shell pwd)/../src/attribute_interpolator.sv
-VERILOG_SOURCES += $(shell pwd)/../src/controller.sv
-VERILOG_SOURCES += $(shell pwd)/../src/fragment_shader.sv
-VERILOG_SOURCES += $(shell pwd)/../src/framebuffer.sv
-VERILOG_SOURCES += $(shell pwd)/../src/gpu_register_file.sv
-VERILOG_SOURCES += $(shell pwd)/../src/gpu_top.sv
-VERILOG_SOURCES += $(shell pwd)/../src/instruction_decoder.sv
-VERILOG_SOURCES += $(shell pwd)/../src/_interconnect.sv
-VERILOG_SOURCES += $(shell pwd)/../src/mmu.sv
-VERILOG_SOURCES += $(shell pwd)/../src/rasterizer.sv
-VERILOG_SOURCES += $(shell pwd)/../src/shader_core.sv
-VERILOG_SOURCES += $(shell pwd)/../src/shader_loader.sv
-VERILOG_SOURCES += $(shell pwd)/../src/axi_wrapper.sv
-VERILOG_SOURCES += $(shell pwd)/../src/texture_unit.sv
-VERILOG_SOURCES += $(shell pwd)/../src/vertex_fetch.sv
-VERILOG_SOURCES += $(shell pwd)/../rtl_utils/reset_sync.sv
-VERILOG_SOURCES += $(shell pwd)/../rtl_utils/arbiter.sv
-VERILOG_SOURCES += $(shell pwd)/../rtl_utils/fifo.sv
-VERILOG_SOURCES += $(shell pwd)/../rtl_utils/clock_divider.sv
-VERILOG_SOURCES += $(shell pwd)/../rtl_utils/mux_n.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/alu.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/attribute_interpolator.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/controller.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/fragment_shader.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/framebuffer.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/gpu_register_file.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/gpu_top.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/instruction_decoder.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/_interconnect.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/mmu.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rasterizer.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/shader_core.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/shader_loader.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/axi_wrapper.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/texture_unit.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/vertex_fetch.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/reset_sync.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/arbiter.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/fifo.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/clock_divider.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/mux_n.sv
 
 TOPLEVEL_LANG = verilog
 TOPLEVEL ?= alu
@@ -43,7 +43,12 @@ all_tests_sequential:
 .PHONY: clean_logs
 clean_logs:
 	rm -f *_tb.log *.log
+	rm -rf sim_*
 	rm -rf sim_build_*
+	rm -rf __pycache__
+	rm -f results.xml
+	rm -f *.vcd
+	rm -f dump.vcd
 
 .PHONY: help
 help:

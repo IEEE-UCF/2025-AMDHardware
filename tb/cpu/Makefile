@@ -1,50 +1,49 @@
 SIM ?= verilator # Verilator for complex use
 
-# RTL Utilities
-VERILOG_SOURCES += ../rtl_utils/mux_n.sv
 
 # Core CPU modules
-VERILOG_SOURCES += ../src/branch_calc.sv
-VERILOG_SOURCES += ../src/bypass_mux.sv
-VERILOG_SOURCES += ../src/control_unit.sv
-VERILOG_SOURCES += ../src/equ.sv
-VERILOG_SOURCES += ../src/imme.sv
-VERILOG_SOURCES += ../src/instruction_buffer.sv
+VERILOG_SOURCES += ../../src/cpu/branch_calc.sv
+VERILOG_SOURCES += ../../src/cpu/bypass_mux.sv
+VERILOG_SOURCES += ../../src/cpu/control_unit.sv
+VERILOG_SOURCES += ../../src/cpu/equ.sv
+VERILOG_SOURCES += ../../src/cpu/imme.sv
+VERILOG_SOURCES += ../../src/cpu/instruction_buffer.sv
+VERILOG_SOURCES += ../../src/cpu/mux_n.sv
 
 # Memory and interconnect
-VERILOG_SOURCES += ../src/_interconnect.sv
-VERILOG_SOURCES += ../src/memory_system.sv
-VERILOG_SOURCES += ../src/mmu.sv
+VERILOG_SOURCES += ../../src/cpu/_interconnect.sv
+VERILOG_SOURCES += ../../src/cpu/memory_system.sv
+VERILOG_SOURCES += ../../src/cpu/mmu.sv
 
 # Coprocessor system
-VERILOG_SOURCES += ../src/coprocessor_system.sv
-VERILOG_SOURCES += ../src/dispatcher.sv
+VERILOG_SOURCES += ../../src/cpu/coprocessor_system.sv
+VERILOG_SOURCES += ../../src/cpu/dispatcher.sv
 
 # GPU modules
-VERILOG_SOURCES += ../src/gpu_op_queue.sv
-VERILOG_SOURCES += ../src/gpu_result_buffer.sv
-VERILOG_SOURCES += ../src/gpu_result_wb.sv
+VERILOG_SOURCES += ../../src/cpu/gpu_op_queue.sv
+VERILOG_SOURCES += ../../src/cpu/gpu_result_buffer.sv
+VERILOG_SOURCES += ../../src/cpu/gpu_result_wb.sv
 
 # Pipeline stages
-VERILOG_SOURCES += ../src/pipeline_stages.sv
+VERILOG_SOURCES += ../../src/cpu/pipeline_stages.sv
 
 # Register files
-VERILOG_SOURCES += ../src/register_file_system.sv
+VERILOG_SOURCES += ../../src/cpu/register_file_system.sv
 
 # Offload logic
-VERILOG_SOURCES += ../src/offload_logic.sv
+VERILOG_SOURCES += ../../src/cpu/offload_logic.sv
 
 # Clock management
-VERILOG_SOURCES += ../src/clock_divider.sv
+VERILOG_SOURCES += ../../src/cpu/clock_divider.sv
 
 # Top-level modules
-VERILOG_SOURCES += ../src/cpu_top.sv
-VERILOG_SOURCES += ../src/cpu_axi_wrapper.sv
-VERILOG_SOURCES += ../src/red_pitaya_cpu_wrapper.sv
+VERILOG_SOURCES += ../../src/cpu/cpu_top.sv
+VERILOG_SOURCES += ../../src/cpu/cpu_axi_wrapper.sv
+VERILOG_SOURCES += ../../src/cpu/red_pitaya_cpu_wrapper.sv
 
 # RTL Utils
-VERILOG_SOURCES += ../rtl_utils/rv32a_atomic.sv
-VERILOG_SOURCES += ../rtl_utils/rv32m_muldiv.sv
+VERILOG_SOURCES += ../../src/cpu/rtl_utils/rv32a_atomic.sv
+VERILOG_SOURCES += ../../src/cpu/rtl_utils/rv32m_muldiv.sv
 
 TOPLEVEL_LANG = verilog
 
