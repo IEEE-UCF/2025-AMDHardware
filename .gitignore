@@ -1,0 +1,149 @@
+# Build outputs and generated files
+build/
+*.bit
+*.log
+*.rpt
+*.dcp
+*.jou
+
+# Verilator generated files
+obj_dir/
+V*.cpp
+V*.h
+verilated*.cpp
+verilated*.h
+
+# Simulation files
+*.vcd
+*.shm
+*.fsdb
+*.wlf
+*.ghw
+sim_build*/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+sim_*/
+
+# Test results
+results.xml
+*.xml
+coverage/
+
+# Xilinx/Vivado generated files
+*.xpr.bak
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.srcs/
+*.gen/
+.Xil/
+*.str
+*.xise
+*.gise
+*.ise
+*.xco
+*.ngc
+*.ngd
+*.bld
+*.ncd
+*.pcf
+*.twr
+*.twx
+*.unroutes
+*.ut
+*.xpi
+*.xst
+*.prj
+*.lso
+*.syr
+*.par
+*.pad
+*.bgn
+*.drc
+*.map
+*.mrp
+*.ngm
+*.csv
+*.html
+vivado*.backup.jou
+vivado*.backup.log
+webtalk*.jou
+webtalk*.log
+usage_statistics_webtalk.xml
+usage_statistics_webtalk.html
+
+# ModelSim/QuestaSim files
+work/
+transcript
+*.wlf
+*.vstf
+*.vcd
+*.list
+*.tmp
+modelsim.ini
+
+# Icarus Verilog
+*.out
+*.vvp
+
+# GHDL
+*.cf
+*.o
+
+# Temporary files
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+.venv/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Custom build artifacts
+*.mif
+*.hex
+*.mem
+*.dat
+
+# Synthesis and implementation reports
+*.utilization.rpt
+*.power.rpt
+*.timing.rpt
+*.route_status.rpt
+*.methodology.rpt
+*.drc.rpt
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Waveform databases
+*.shm/
+*.diag/
