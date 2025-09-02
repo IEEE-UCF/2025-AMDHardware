@@ -13,6 +13,8 @@
 
 ---
 
+# [Link to Video Explanation](https://youtu.be/MD8FkJjmYvk)
+
 # KnightCore
 
 For AOHW2025, our team designed and implemented a complete CPU–GPU system-on-chip for the Red Pitaya 125-14 v1.1, **KnightCore**. The project integrates **KnightCPU**, a custom 32-bit RISC-V processor, with **KnightGPU**, a hardware accelerated graphics processor, to form a cohesive compute and rendering pipeline. The two cores communicate via an AXI4 interconnect for integration of computing and graphics workloads on FPGA hardware.
