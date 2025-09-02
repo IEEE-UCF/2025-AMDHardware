@@ -1,6 +1,5 @@
 # Build outputs and generated files
 build/
-*.bit
 *.log
 *.rpt
 *.dcp
