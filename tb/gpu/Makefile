@@ -8,7 +8,7 @@ VERILOG_SOURCES += $(shell pwd)/../../src/gpu/framebuffer.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/gpu_register_file.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/gpu_top.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/instruction_decoder.sv
-VERILOG_SOURCES += $(shell pwd)/../../src/gpu/_interconnect.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/gpu_interconnect.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/mmu.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rasterizer.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/shader_core.sv
@@ -20,7 +20,7 @@ VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/reset_sync.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/arbiter.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/fifo.sv
 VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/clock_divider.sv
-VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/mux_n.sv
+VERILOG_SOURCES += $(shell pwd)/../../src/gpu/rtl_utils/gpu_mux_n.sv
 
 TOPLEVEL_LANG = verilog
 TOPLEVEL ?= alu
@@ -28,7 +28,7 @@ MODULE ?= alu_tb
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
-TESTBENCHES = alu:alu_tb attribute_interpolator:attribute_interpolator_tb controller:controller_tb fragment_shader:fragment_shader_tb framebuffer:framebuffer_tb gpu_register_file:gpu_reg_tb gpu_top:gpu_top_tb instruction_decoder:instr_decode_tb _interconnect:interconnect_tb mmu:mmu_tb rasterizer:rasterizer_tb shader_core:shader_core_tb shader_loader:shader_loader_tb axi_wrapper:axi_wrapper_tb texture_unit:texture_tb vertex_fetch:vertex_tb
+TESTBENCHES = alu:alu_tb attribute_interpolator:attribute_interpolator_tb controller:controller_tb fragment_shader:fragment_shader_tb framebuffer:framebuffer_tb gpu_register_file:gpu_reg_tb gpu_top:gpu_top_tb instruction_decoder:instr_decode_tb gpu_interconnect:interconnect_tb mmu:mmu_tb rasterizer:rasterizer_tb shader_core:shader_core_tb shader_loader:shader_loader_tb axi_wrapper:axi_wrapper_tb texture_unit:texture_tb vertex_fetch:vertex_tb
 
 .PHONY: all_tests
 all_tests:
@@ -93,7 +93,7 @@ instruction_decoder:
 
 .PHONY: interconnect
 interconnect:
-	$(MAKE) TOPLEVEL=_interconnect MODULE=interconnect_tb SIM_BUILD=sim_build_interconnect
+	$(MAKE) TOPLEVEL=gpu_interconnect MODULE=interconnect_tb SIM_BUILD=sim_build_interconnect
 
 .PHONY: mmu
 mmu:

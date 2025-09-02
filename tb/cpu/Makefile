@@ -8,10 +8,10 @@ VERILOG_SOURCES += ../../src/cpu/control_unit.sv
 VERILOG_SOURCES += ../../src/cpu/equ.sv
 VERILOG_SOURCES += ../../src/cpu/imme.sv
 VERILOG_SOURCES += ../../src/cpu/instruction_buffer.sv
-VERILOG_SOURCES += ../../src/cpu/mux_n.sv
+VERILOG_SOURCES += ../../src/cpu/cpu_mux_n.sv
 
 # Memory and interconnect
-VERILOG_SOURCES += ../../src/cpu/_interconnect.sv
+VERILOG_SOURCES += ../../src/cpu/cpu_interconnect.sv
 VERILOG_SOURCES += ../../src/cpu/memory_system.sv
 VERILOG_SOURCES += ../../src/cpu/mmu.sv
 
@@ -61,7 +61,7 @@ TESTBENCHES = \
 	equ:equ_tb \
 	imme:imme_tb \
 	instruction_buffer:instruction_buffer_tb \
-	_interconnect:interconnect_tb \
+	cpu_interconnect:interconnect_tb \
 	coprocessor_system:coprocessor_system_tb \
 	cpu_top:cpu_top_tb \
 	dispatcher:dispatcher_tb \
@@ -186,7 +186,7 @@ instruction_buffer:
 
 .PHONY: interconnect
 interconnect:
-	$(MAKE) sim TOPLEVEL=_interconnect MODULE=interconnect_tb SIM_BUILD=sim_interconnect
+	$(MAKE) sim TOPLEVEL=cpu_interconnect MODULE=interconnect_tb SIM_BUILD=sim_interconnect
 
 .PHONY: coprocessor_system 
 coprocessor_system:

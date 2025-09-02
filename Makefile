@@ -48,14 +48,14 @@ help:
 
 $(CPU_TESTS):
 	@if [ "$(filter cpu,$(MAKECMDGOALS))" ]; then \
-		$(MAKE) -C $(CPU_TB_DIR) $(subst cpu_,,$@); \
+		$(MAKE) -C $(CPU_TB_DIR) $(subst c_,,$@); \
 	else \
 		echo "Usage: make $@ cpu"; \
 	fi
 
 $(GPU_TESTS):
 	@if [ "$(filter gpu,$(MAKECMDGOALS))" ]; then \
-		$(MAKE) -C $(GPU_TB_DIR) $(subst gpu_,,$@); \
+		$(MAKE) -C $(GPU_TB_DIR) $(subst g_,,$@); \
 	else \
 		echo "Usage: make $@ gpu"; \
 	fi
