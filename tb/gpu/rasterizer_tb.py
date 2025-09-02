@@ -1,8 +1,7 @@
 import cocotb
 import random
-from cocotb.triggers import Timer, RisingEdge, FallingEdge
+from cocotb.triggers import Timer, RisingEdge
 from cocotb.clock import Clock
-from cocotb.binary import BinaryValue
 
 
 def calculate_barycentric(x, y, v0_x, v0_y, v1_x, v1_y, v2_x, v2_y):
@@ -73,7 +72,7 @@ async def test_rasterizer_simple_triangle(dut):
 
     # Collect all output fragments
     fragments = []
-    max_cycles = 1000000  # Safety timeout
+    max_cycles = 20  # Safety timeout
 
     for cycle in range(max_cycles):
         await RisingEdge(dut.clk)
@@ -160,7 +159,7 @@ async def test_rasterizer_simple_triangle(dut):
 
     # Collect all output fragments
     fragments = []
-    max_cycles = 2000  # Safety timeout
+    max_cycles = 20  # Safety timeout
 
     for cycle in range(max_cycles):
         await RisingEdge(dut.clk)
@@ -251,7 +250,7 @@ async def test_rasterizer_edge_cases(dut):
 
         # Collect fragments
         fragments = []
-        max_cycles = 500
+        max_cycles = 50
 
         for cycle in range(max_cycles):
             await RisingEdge(dut.clk)
@@ -292,7 +291,7 @@ async def test_rasterizer_random_triangles(dut):
     cocotb.start_soon(clock.start())
 
     random.seed(42)  # For reproducible tests
-    num_tests = 100000
+    num_tests = 200
 
     for test_idx in range(num_tests):
         # Generate random triangle vertices

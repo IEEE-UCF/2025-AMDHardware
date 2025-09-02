@@ -11,8 +11,9 @@
 CPU_TB_DIR := tb/cpu
 GPU_TB_DIR := tb/gpu
 
-CPU_TESTS = mux_n branch_calc bypass_mux control_unit equ imme instruction_buffer interconnect coprocessor_system cpu_top dispatcher memory_system mmu gpu_op_queue gpu_result_buffer gpu_result_wb pipeline_stages register_file_system offload_logic clock_divider cpu_axi_wrapper red_pitaya_cpu_wrapper
-GPU_TESTS = alu attribute_interpolator controller fragment_shader framebuffer gpu_register_file gpu_top instruction_decoder interconnect mmu rasterizer shader_core shader_loader axi_wrapper texture_unit vertex_fetch
+# Remove ambiguous test names to avoid duplicate target warnings
+CPU_TESTS = mux_n branch_calc bypass_mux control_unit equ imme instruction_buffer cpu_interconnect coprocessor_system cpu_top dispatcher memory_system cpu_mmu gpu_op_queue gpu_result_buffer gpu_result_wb pipeline_stages register_file_system offload_logic clock_divider cpu_axi_wrapper red_pitaya_cpu_wrapper
+GPU_TESTS = alu attribute_interpolator controller fragment_shader framebuffer gpu_register_file gpu_top instruction_decoder gpu_interconnect gpu_mmu rasterizer shader_core shader_loader axi_wrapper texture_unit vertex_fetch
 
 all_cpu_tests:
 	$(MAKE) -C $(CPU_TB_DIR) all_tests
@@ -47,14 +48,14 @@ help:
 
 $(CPU_TESTS):
 	@if [ "$(filter cpu,$(MAKECMDGOALS))" ]; then \
-		$(MAKE) -C $(CPU_TB_DIR) $@; \
+		$(MAKE) -C $(CPU_TB_DIR) $(subst cpu_,,$@); \
 	else \
 		echo "Usage: make $@ cpu"; \
 	fi
 
 $(GPU_TESTS):
 	@if [ "$(filter gpu,$(MAKECMDGOALS))" ]; then \
-		$(MAKE) -C $(GPU_TB_DIR) $@; \
+		$(MAKE) -C $(GPU_TB_DIR) $(subst gpu_,,$@); \
 	else \
 		echo "Usage: make $@ gpu"; \
 	fi
