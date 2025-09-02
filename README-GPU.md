@@ -19,9 +19,8 @@ KnightGPU is a hardware accelerated 3D graphics processor for the Red Pitaya. Fo
 ## Directory Structure
 
 - `src/gpu` — Main SystemVerilog modules (GPU core, ALU, MMU, etc.)
-- `src/gpurtl_utils` — Utility SystemVerilog modules (FIFO, mux, etc.)
+- `src/gpu/rtl_utils` — Utility SystemVerilog modules (FIFO, mux, etc.)
 - `tb/gpu` — Python cocotb testbenches for each module
-- `sw/` — Software: drivers, host interface, assembler, example programs
 - `docs/` — Documentation (architecture, ISA, memory map, etc.)
 - `synth/` — Synthesis and simulation scripts, FPGA project files
 
