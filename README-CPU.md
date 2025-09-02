@@ -12,9 +12,9 @@
    - Franco Mezzarapa
 - **Supervisor:** Dr. Suboh Suboh
 
-# KnightCore
+# KnightCPU
 
-KnightCore is a 32-bit RISC-V processor optimized for the Red Pitaya 125-14 version 1.1. For AOHW2025, we have implemented the RV32IMA instruction set with a 5-stage pipeline, hardware multiply/divide unit, and atomic memory operations. The design features forwarding logic for hazard mitigation, a coprocessor interface for custom accelerators, and native AXI4 interconnect support for integration with the KnightGPU graphics processor.
+KnightCPU is a 32-bit RISC-V processor optimized for the Red Pitaya 125-14 version 1.1. For AOHW2025, we have implemented the RV32IMA instruction set with a 5-stage pipeline, hardware multiply/divide unit, and atomic memory operations. The design features forwarding logic for hazard mitigation, a coprocessor interface for custom accelerators, and native AXI4 interconnect support for integration with the KnightGPU graphics processor.
 
 ## Directory Structure
 
