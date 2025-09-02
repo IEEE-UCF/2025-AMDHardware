@@ -18,11 +18,9 @@ KnightCore is a 32-bit RISC-V processor optimized for the Red Pitaya 125-14 vers
 
 ## Directory Structure
 
-- `src/` — Main SystemVerilog modules (CPU core, ALU, control unit, etc.)
-- `rtl_utils/` — Utility SystemVerilog modules (arbiter, mux, clock divider, etc.)
-- `tb/` — Python cocotb testbenches for each module
-- `sw/` — Software: bootloader, test programs, compiler toolchain
-- `docs/` — Documentation (ISA implementation, pipeline stages, memory map)
+- `src/cpu` — Main SystemVerilog modules (CPU core, ALU, control unit, etc.)
+- `src/cpu/rtl_utils` — Utility SystemVerilog modules (arbiter, mux, clock divider, etc.)
+- `tb/cpu` — Python cocotb testbenches for each module
 - `synth/` — Synthesis and simulation scripts, FPGA project files
 
 ### Key Specifications
@@ -43,7 +41,7 @@ KnightCore is a 32-bit RISC-V processor optimized for the Red Pitaya 125-14 vers
 # Install Verilator (recommended version 4.0+)
 sudo apt-get install verilator gtkwave make gcc g++
 
-# Install Python dependencies for testing
+# Install Python dependencies for testing (recommended to make a virtual environment)
 sudo apt-get install python3 python3-pip
 pip3 install cocotb cocotb-test pytest
 
@@ -62,7 +60,7 @@ sudo apt-get install gcc-riscv64-unknown-elf
 To run the test benches, use the makefile following format:
 
 ```bash
-make [file] 
+make [file] cpu
 ```
 
 To find the files needed for testing:
@@ -74,19 +72,11 @@ will list all available targets.
 This command will use CocoTB to test the testbenches. If comprehensive testing is needed, add:
 
 ```bash
-SIM=verilator
+SIM=verilator make {rest of command}
 ```
 at the end of the command.
 
 ```bash
-# Examples
-
-# Test ALU module
-make test_alu SIM=verilator
-
-# Test control unit
-make test_control SIM=verilator
-
-# Test full CPU pipeline
-make test_cpu_top SIM=verilator
+# Example
+make cpu_top cpu SIM=verilator
 ```
