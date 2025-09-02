@@ -1,4 +1,4 @@
-SIM ?= verilator # Verilator for complex use
+SIM ?= icarus
 
 
 # Core CPU modules
